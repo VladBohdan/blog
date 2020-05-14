@@ -5,7 +5,7 @@
             [ngClass]="{invalid: form.get('email').touched && form.get('email').invalid}"
     >
         <label for="email">Email</label>
-        <input id="email" type="email">
+        <input id="email" type="email" formControlName="email">
         <div
                 *ngIf="form.get('email').touched && form.get('email').invalid"
                 class="validation"
@@ -14,7 +14,7 @@
                 Введіть поле Email
             </small>
             <small *ngIf="form.get('email').errors.email">
-                Ввудіть коректний параль
+                Введіть коректний Email
             </small>
         </div>
     </div>
@@ -26,12 +26,21 @@
         <label
                 for="password"
         >Пароль</label>
-        <input id="password" type="password">
+        <input id="password" type="password" formControlName="password">
         <div
                 class="validation"
                 *ngIf="form.get('password').touched && form.get('password').invalid"
         >
-            <small>error</small>
+            <small *ngIf="form.get('password').errors.required">
+                Поле пароль не може бути пустим
+            </small>
+            <small *ngIf="form.get('password').errors.minlength">
+                Введіть коректний пароль, Пароль має бути не менше
+                {{form.get('password').errors.minlength.requiredLength}}
+                символів. Зараз він
+                {{form.get('password').errors.minlength.actualLength}}
+                символа
+            </small>
         </div>
     </div>
 
