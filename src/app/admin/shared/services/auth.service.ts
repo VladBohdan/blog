@@ -14,10 +14,14 @@ export class AuthService {
         return '';
     }
 
+    private static setToken(response) {
+        console.log(response);
+    }
+
     login(user: User): Observable<any> {
         return this.http.post( `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${environment.apiKey}`, user)
             .pipe(
-                tap(this.setToken)
+                tap(AuthService.setToken)
             );
     }
 
@@ -27,10 +31,6 @@ export class AuthService {
 
     isAuthenticate(): boolean {
         return !!this.token;
-    }
-
-    private setToken(response) {
-        console.log(response);
     }
 
 }
