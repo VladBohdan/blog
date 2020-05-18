@@ -2,9 +2,12 @@
     <h2>Війти в панель адміністратора</h2>
 
 
-<div class="alert alert-danger" *ngIf="auth.error$ | async as error">
-    {{error}}
-</div>
+    <div class="alert alert-danger" *ngIf="auth.error$ | async as error">
+        {{error}}
+    </div>
+    <div class="alert alert-info" *ngIf="massage">
+        {{massage}}
+    </div>
 
     <div
             class="form-control"
@@ -54,5 +57,6 @@
             type="submit"
             class="btn btn-primary"
             [disabled]="form.invalid || submitted"
-    >Вхід</button>
+    >Вхід
+    </button>
 </form>
