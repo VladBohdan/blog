@@ -19,13 +19,14 @@
 
     <div class="form-control">
         <label>Контент поста: </label>
+        <quill-editor formControlName="text"></quill-editor>
     </div>
 
     <div
             class="form-control"
             [ngClass]="{invalid: form.get('author').touched && form.get('author').invalid}"
     >
-        <label for="author">Назва поста </label>
+        <label for="author">Автор поста </label>
         <input id="author" type="text" formControlName="author">
         <div
                 *ngIf="form.get('author').touched && form.get('author').invalid"
