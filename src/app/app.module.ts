@@ -7,7 +7,7 @@ import {MainLayoutComponent} from './shared/components/main-layout/main-layout.c
 import {HomePageComponent} from './home-page/home-page.component';
 import {PostPageComponent} from './post-page/post-page.component';
 import {PostComponent} from './shared/components/post/post.component';
-import {SharedModule} from './admin/shared/Shared.module';
+import {SharedModule} from './shared/Shared.module';
 
 @NgModule({
     declarations: [
