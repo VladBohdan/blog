@@ -28,7 +28,7 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
         if (this.pSub) {
             this.pSub.unsubscribe();
         }
-    if (this.dSub) {
+        if (this.dSub) {
             this.dSub.unsubscribe();
         }
     }
