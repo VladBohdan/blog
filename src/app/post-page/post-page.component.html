@@ -1,19 +1,21 @@
-<div class="post">
-    <div class="header">
-        <h1>Post Title</h1>
+<div *ngIf="post$ | async as post; else loading">
+    <div class="post">
+        <div class="header">
+            <h1>{{ post.title }}</h1>
 
-        <button routerLink="/" class="btn btn-link"
-        >На головну</button>
-    </div>
-    <div class="info">
-        <strong>Тут Автор</strong>
-        <small>14.05.2020</small>
-    </div>
-    <div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi autem deserunt impedit maiores natus nesciunt ratione similique, sunt vel veritatis voluptatibus, voluptatum. Ab commodi consequuntur corporis cumque deleniti deserunt, dolorum, est eveniet expedita facilis harum impedit modi molestias mollitia nam necessitatibus nihil, nisi ratione recusandae similique sunt suscipit unde voluptate?</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi autem deserunt impedit maiores natus nesciunt ratione similique, sunt vel veritatis voluptatibus, voluptatum. Ab commodi consequuntur corporis cumque deleniti deserunt, dolorum, est eveniet expedita facilis harum impedit modi molestias mollitia nam necessitatibus nihil, nisi ratione recusandae similique sunt suscipit unde voluptate?</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi autem deserunt impedit maiores natus nesciunt ratione similique, sunt vel veritatis voluptatibus, voluptatum. Ab commodi consequuntur corporis cumque deleniti deserunt, dolorum, est eveniet expedita facilis harum impedit modi molestias mollitia nam necessitatibus nihil, nisi ratione recusandae similique sunt suscipit unde voluptate?</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi autem deserunt impedit maiores natus nesciunt ratione similique, sunt vel veritatis voluptatibus, voluptatum. Ab commodi consequuntur corporis cumque deleniti deserunt, dolorum, est eveniet expedita facilis harum impedit modi molestias mollitia nam necessitatibus nihil, nisi ratione recusandae similique sunt suscipit unde voluptate?</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi autem deserunt impedit maiores natus nesciunt ratione similique, sunt vel veritatis voluptatibus, voluptatum. Ab commodi consequuntur corporis cumque deleniti deserunt, dolorum, est eveniet expedita facilis harum impedit modi molestias mollitia nam necessitatibus nihil, nisi ratione recusandae similique sunt suscipit unde voluptate?</p>
+            <button routerLink="/" class="btn btn-link"
+            >На головну
+            </button>
+        </div>
+        <div class="info">
+            <strong>{{post.author}}</strong>
+            <small>{{post.date | date: 'medium':null:'ua'}}</small>
+        </div>
+        <div>
+           <quill-view-html [content]="post.text"></quill-view-html>
+        </div>
     </div>
 </div>
+<ng-template #loading>
+    <p class="text-center">Загружаю пост....</p>
+</ng-template>
