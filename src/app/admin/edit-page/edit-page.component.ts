@@ -31,13 +31,14 @@ export class EditPageComponent implements OnInit, OnDestroy {
     ngOnInit() {
         this.route.params.pipe(
             switchMap((params: Params) => {
-                return this.postsService.getById(params['id']);
+                return this.postsService.getById(params.id);
             })
         ).subscribe((post: Post) => {
             this.post = post;
             this.form = new FormGroup({
                 title: new FormControl(post.title, Validators.required),
                 text: new FormControl(post.text, Validators.required),
+                tag: new  FormControl(post.tag, Validators.required),
             });
         });
     }
@@ -58,6 +59,7 @@ export class EditPageComponent implements OnInit, OnDestroy {
             ...this.post,
             text: this.form.value.text,
             title: this.form.value.title,
+            tag: this.form.value.tag,
         }).subscribe(() => {
             this.submitted = false;
             this.alert.danger('Пост був оновлений');

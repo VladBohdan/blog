@@ -37,6 +37,21 @@
             </small>
         </div>
     </div>
+    <div
+            class="form-control"
+            [ngClass]="{invalid: form.get('title').touched && form.get('title').invalid}"
+    >
+        <label for="tag">Назва тега </label>
+        <input id="tag" type="text" formControlName="tag">
+        <div
+                *ngIf="form.get('tag').touched && form.get('tag').invalid"
+                class="validation"
+        >
+            <small *ngIf="form.get('tag').errors.required">
+                Додайте тег
+            </small>
+        </div>
+    </div>
     <button
             type="submit"
             class="btn btn-block btn-dark"

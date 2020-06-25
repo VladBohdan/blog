@@ -12,6 +12,7 @@ export  interface Post {
     title: string;
     text: string;
     author: string;
+    tag: string;
     date: Date;
 }
 export interface FbCreateResponse {

@@ -1,13 +1,14 @@
 <div *ngIf="posts.length; else loading">
-   <div class="form-control">
-       <input type="text" placeholder="Найти пост..." [(ngModel)]="searchStr">
-   </div>
+    <div class="form-control">
+        <input type="text" placeholder="Найти пост..." [(ngModel)]="searchStr">
+    </div>
     <table>
         <thead>
         <tr>
             <th>#</th>
             <th>Автор</th>
             <th>Назва</th>
+            <th>Тег</th>
             <th>Дата</th>
             <th>Дія</th>
         </tr>
@@ -17,6 +18,7 @@
             <td>{{ idx + 1 }}</td>
             <td>{{ post.author }}</td>
             <td>{{ post.title }}</td>
+            <td>{{post.tag}}</td>
             <td>{{ post.date | date:'medium':null:'ua' }}</td>
             <td>
                 <button

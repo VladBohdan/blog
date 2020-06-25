@@ -14,6 +14,16 @@
                     Введіть назву поста
                 </small>
             </div>
+            <label for="tag">Назва тега </label>
+            <input id="tag" type="text" formControlName="tag">
+            <div
+                    *ngIf="form.get('tag').touched && form.get('tag').invalid"
+                    class="validation"
+            >
+                <small *ngIf="form.get('tag').errors.required">
+                    Введіть назву тега
+                </small>
+            </div>
         </div>
         <div class="form-control">
             <quill-editor formControlName="text"></quill-editor>
@@ -22,7 +32,8 @@
                 class="btn btn-primary"
                 type="submit"
                 [disabled]="form.invalid || submitted"
-        >Обновити</button>
+        >Обновити
+        </button>
     </form>
 </div>
 <ng-template #Loading>
