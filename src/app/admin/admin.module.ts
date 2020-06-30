@@ -12,6 +12,7 @@ import {AuthGuard} from './shared/services/auth.guard';
 import {SearchPipe} from './shared/search.pipe';
 import { AlertComponent } from './shared/components/alert/alert.component';
 import {AlertService} from './shared/services/alert.service';
+import {SearchTagPipe} from './shared/search-tag.pipe';
 
 @NgModule({
     declarations: [
@@ -22,6 +23,7 @@ import {AlertService} from './shared/services/alert.service';
         EditPageComponent,
         SearchPipe,
         AlertComponent,
+        SearchTagPipe,
     ],
 
     imports: [
