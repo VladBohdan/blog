@@ -1,6 +1,5 @@
 <div *ngIf="posts.length; else loading">
     <div class="form-control">
-        <app-get-check-box></app-get-check-box>
         <input type="text" placeholder="Найти пост..." [(ngModel)]="searchStr" >
     </div>
     <p>Виберіть варіант сортування:</p>

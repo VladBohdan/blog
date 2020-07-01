@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 @import "~quill/dist/quill.core.css";
 @import "~quill/dist/quill.snow.css";
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+
 
 :root {
   --primary-color: #dc3545;
