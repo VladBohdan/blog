@@ -1,6 +1,17 @@
 <div *ngIf="posts.length; else loading">
     <div class="form-control">
-        <input type="text" placeholder="Найти пост..." [(ngModel)]="searchStr">
+        <app-get-check-box></app-get-check-box>
+        <input type="text" placeholder="Найти пост..." [(ngModel)]="searchStr" >
+    </div>
+    <p>Виберіть варіант сортування:</p>
+    <div>
+        <input type="checkbox" id="title" name="title " value="title"
+               checked>
+        <label for="title"> Title</label>n
+    </div>
+    <div>
+        <input type="checkbox" id="tag" name="tag" value="tag" >
+        <label for="tag"> Tag</label>
     </div>
     <table>
         <thead>
@@ -14,7 +25,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let post of posts | searchPosts: searchStr; let idx = index">
+        <tr *ngFor="let post of posts | searchPosts:searchStr ; let idx = index">
             <td>{{ idx + 1 }}</td>
             <td>{{ post.author }}</td>
             <td>{{ post.title }}</td>
