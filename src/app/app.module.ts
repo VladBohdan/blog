@@ -30,7 +30,7 @@ const INTERCEPTOR_PROVIDER: Provider = {
         MainLayoutComponent,
         HomePageComponent,
         PostPageComponent,
-        PostComponent
+        PostComponent,
     ],
     imports: [
         BrowserModule,

@@ -9,10 +9,12 @@ import { EditPageComponent } from './edit-page/edit-page.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {SharedModule} from '../shared/Shared.module';
 import {AuthGuard} from './shared/services/auth.guard';
-import {SearchPipe} from './shared/search.pipe';
+import {SearchPipe} from './shared/Pipe/search.pipe';
 import { AlertComponent } from './shared/components/alert/alert.component';
 import {AlertService} from './shared/services/alert.service';
-import {SearchTagPipe} from './shared/search-tag.pipe';
+import {SearchTagPipe} from './shared/Pipe/search-tag.pipe';
+import { GetCheckBoxComponent } from './shared/get-check-box/get-check-box.component';
+import {MatCheckboxModule} from "@angular/material/checkbox";
 
 @NgModule({
     declarations: [
@@ -24,6 +26,7 @@ import {SearchTagPipe} from './shared/search-tag.pipe';
         SearchPipe,
         AlertComponent,
         SearchTagPipe,
+        GetCheckBoxComponent,
     ],
 
     imports: [
@@ -37,11 +40,12 @@ import {SearchTagPipe} from './shared/search-tag.pipe';
                     {path: '', redirectTo: '/admin/login', pathMatch: 'full'},
                     {path: 'login', component: LoginPageComponent},
                     {path: 'dashboard', component: DashboardPageComponent, canActivate: [AuthGuard]},
-                    {path: 'create', component: CreatePageComponent,  canActivate: [AuthGuard]},
-                    {path: 'post/:id/edit', component: EditPageComponent,  canActivate: [AuthGuard]}
+                    {path: 'create', component: CreatePageComponent, canActivate: [AuthGuard]},
+                    {path: 'post/:id/edit', component: EditPageComponent, canActivate: [AuthGuard]}
                 ]
             }
         ]),
+        MatCheckboxModule,
     ],
     exports: [RouterModule],
     providers: [AuthGuard, AlertService]
