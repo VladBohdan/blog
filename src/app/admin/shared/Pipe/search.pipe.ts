@@ -11,13 +11,10 @@ export class SearchPipe  implements PipeTransform {
         }
         else {
                 return posts.filter(post => {
-                    if (field[0]){
-                        return  post.title.toLowerCase().includes(search.toLowerCase());
-                    }
-                    else {
-                        return field[1] = String(post.tag?.toLowerCase().includes(search.toLowerCase()));
-                    }
-            });
+                    return field.reduce((accumulator, currentValue) => {
+                        return accumulator || post[currentValue]?.toLowerCase().includes(search.toLowerCase());
+                    }, false);
+                });
             }
     }
 }
