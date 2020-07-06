@@ -1,28 +1,30 @@
-import {Component, Output} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
+import {FormControl} from '@angular/forms';
 
 @Component({
-  selector: 'app-get-check-box',
-  templateUrl: './get-check-box.component.html',
-  styleUrls: ['./get-check-box.component.scss']
+    selector: 'app-get-check-box',
+    templateUrl: './get-check-box.component.html',
+    styleUrls: ['./get-check-box.component.scss']
 })
 export class GetCheckBoxComponent {
-  lastAction: string;
-  event: string;
+    lastAction: string;
 
-  field = [
-    { label: 'title', checked: false },
-    { label: 'tag', checked: false }
-  ];
+    @Output() onMyMethod = new EventEmitter();
+    field = [
+        {label: 'title', checked: false},
+        {label: 'tag', checked: false}
+    ];
 
-  @Output() onChange(event, index, item) {
 
-    item.checked = !item.checked;
+    onChange(event, index, item) {
 
-    this.lastAction = 'index: ' + index + ', label: ' + item.label + ', checked: ' + item.checked;
+        item.checked = !item.checked;
 
-    console.log(index, event, item);
+        this.lastAction = 'index: ' + index + ', label: ' + item.label + ', checked: ' + item.checked;
 
-  }
+        this.onMyMethod.emit(item);
+        // console.log(index, event, item);
+    }
 
 
 }

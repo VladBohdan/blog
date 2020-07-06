@@ -43,4 +43,7 @@ export class DashboardPageComponent implements OnInit, OnDestroy {
             this.alert.warning('Пост був видалений');
         });
     }
+    onMyMethod(item){
+        console.log(item);
+    }
 }

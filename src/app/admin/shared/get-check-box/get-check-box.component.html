@@ -1,6 +1,6 @@
 <div class="container">
   <div *ngFor="let item of field; let i = index;">
-    <mat-checkbox [checked]="item.checked" (change)="onChange($event, i, item)">
+    <mat-checkbox  [checked]="item.checked" (change)="onChange($event, i, item)">
       {{item.label}}
     </mat-checkbox>
   </div>

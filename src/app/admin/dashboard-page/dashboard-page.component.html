@@ -2,7 +2,9 @@
     <div class="form-control">
         <input type="text" placeholder="Найти пост..." [(ngModel)]="searchStr" >
     </div>
-    <app-get-check-box></app-get-check-box>
+    <app-get-check-box
+            (onMyMethod)="onMyMethod($event)"
+    ></app-get-check-box>
     <table>
         <thead>
         <tr>
