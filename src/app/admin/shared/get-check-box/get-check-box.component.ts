@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Output} from '@angular/core';
 
 @Component({
   selector: 'app-get-check-box',
@@ -7,13 +7,14 @@ import { Component } from '@angular/core';
 })
 export class GetCheckBoxComponent {
   lastAction: string;
+  event: string;
 
   field = [
     { label: 'title', checked: false },
     { label: 'tag', checked: false }
   ];
 
-  onChange(event, index, item) {
+  @Output() onChange(event, index, item) {
 
     item.checked = !item.checked;
 
