@@ -14,7 +14,7 @@ import { AlertComponent } from './shared/components/alert/alert.component';
 import {AlertService} from './shared/services/alert.service';
 import {SearchTagPipe} from './shared/Pipe/search-tag.pipe';
 import { GetCheckBoxComponent } from './shared/get-check-box/get-check-box.component';
-import {MatCheckboxModule} from "@angular/material/checkbox";
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
     declarations: [

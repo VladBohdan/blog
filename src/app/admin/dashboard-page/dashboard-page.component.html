@@ -2,16 +2,9 @@
     <div class="form-control">
         <input type="text" placeholder="Найти пост..." [(ngModel)]="searchStr" >
     </div>
-    <p>Виберіть варіант сортування:</p>
-    <div>
-        <input type="checkbox" id="title" name="title " value="title"
-               checked>
-        <label for="title"> Title</label>n
-    </div>
-    <div>
-        <input type="checkbox" id="tag" name="tag" value="tag" >
-        <label for="tag"> Tag</label>
-    </div>
+    <app-get-check-box
+            (onMyMethod)="onMyMethod($event)"
+    ></app-get-check-box>
     <table>
         <thead>
         <tr>

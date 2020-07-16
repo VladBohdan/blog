@@ -1,49 +1,30 @@
-import { Component } from '@angular/core';
-import {ThemePalette} from '@angular/material/core';
+import {Component, EventEmitter, Output} from '@angular/core';
+import {FormControl} from '@angular/forms';
 
-
-export interface Task {
-  name: string;
-  completed: boolean;
-  color: ThemePalette;
-  subtasks?: Task[];
-}
 @Component({
-  selector: 'app-get-check-box',
-  templateUrl: './get-check-box.component.html',
-  styleUrls: ['./get-check-box.component.scss']
+    selector: 'app-get-check-box',
+    templateUrl: './get-check-box.component.html',
+    styleUrls: ['./get-check-box.component.scss']
 })
 export class GetCheckBoxComponent {
+    lastAction: string;
 
-  task: Task = {
-    name: 'Усі категорії',
-    completed: false,
-    color: 'primary',
-    subtasks: [
-      {name: 'Title', completed: false, color: 'primary'},
-      {name: 'Tag', completed: false, color: 'accent'},
-    ]
-  };
+    @Output() onMyMethod = new EventEmitter();
+    field = [
+        {label: 'title', checked: false},
+        {label: 'tag', checked: false}
+    ];
 
-  allComplete = false;
 
-  updateAllComplete() {
-    this.allComplete = this.task.subtasks != null && this.task.subtasks.every(t => t.completed);
-  }
+    onChange(event, index, item) {
 
-  someComplete(): boolean {
-    if (this.task.subtasks == null) {
-      return false;
+        item.checked = !item.checked;
+
+        this.lastAction = 'index: ' + index + ', label: ' + item.label + ', checked: ' + item.checked;
+
+        this.onMyMethod.emit(item);
+        // console.log(index, event, item);
     }
-    return this.task.subtasks.filter(t => t.completed).length > 0 && !this.allComplete;
-  }
 
-  setAll(completed: boolean) {
-    this.allComplete = completed;
-    if (this.task.subtasks == null) {
-      return;
-    }
-    this.task.subtasks.forEach(t => t.completed = completed);
-  }
 
 }
